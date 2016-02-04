@@ -17,9 +17,16 @@ hsl(22, 52%, 32%);
 
 */
 
+/* Ampersand */
+@font-face {
+    font-family: Ampersand;
+    src: local('Baskerville-Italic'), local('Garamond Italic'), local('Georgia Italic'), local('Times New Roman-Italic'), local('Cambria-Italic');
+    unicode-range: U+26;
+}
+
 /* Basics */
 * {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Roboto', 'Helvetica', 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
 }
 body {
 	margin: 0;
@@ -27,6 +34,7 @@ body {
 }
 h1 {
 	font-size: 2.369rem;
+	font-family: 'Ampersand', 'Roboto', 'Helvetica', 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
 }
 h2 {
 	font-size: 1.777rem;
@@ -64,9 +72,6 @@ button:hover {
 h1, h2, h3, p, a, li, button {
 	line-height: 1.7;
 }
-
-
-
 
 /* LISTS */
 ul {
