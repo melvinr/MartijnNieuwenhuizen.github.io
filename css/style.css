@@ -1,7 +1,15 @@
 /*
 
-COLORS USAGE
+	If you want to use this example, please follow this steps.
+	* Use Google Chrome
+	* Go to: *chrome://flags/*
+	* Set *Enable experimental Web Platform features* on Enable
+	* Now u can use this example
 
+*/
+/*
+
+Used Colors
 hsl(33, 56%, 84%);
 hsl(107, 20%, 81%);
 hsl(203, 15%, 70%);
@@ -12,7 +20,10 @@ hsl(22, 52%, 32%);
 /* Basics */
 * {
 	font-family: 'Roboto', sans-serif;
-	/*outline: 1px solid lime;*/
+}
+body {
+	margin: 0;
+	padding: 0;
 }
 h1 {
 	font-size: 2.369rem;
@@ -54,6 +65,9 @@ h1, h2, h3, p, a, li, button {
 	line-height: 1.7;
 }
 
+
+
+
 /* LISTS */
 ul {
 	padding-left: .5em;
@@ -74,6 +88,9 @@ li a:hover {
 	cursor: pointer;
 }
 
+
+
+
 /* IMAGES */
 img {
 	max-width: 100%;
@@ -87,35 +104,12 @@ figcaption {
 	background-color: hsl(107, 20%, 71%);
 	font-weight: bold;
 }
-nav {
 
-}
-ul {
-
-}
-ul li {
-
-}
-
-/* SVG */
+/* SVG global */
 svg {
 	width: 1.2em;
 	height: 1.2em;
 }
-
-
-
-
-/* CSS GRID LAYOUT */
-body {
-	margin: 0;
-	padding: 0;
-}
-
-body > header {
-	
-}
-
 
 
 /* HEADER */
@@ -159,9 +153,6 @@ article {
 	align-items: center;
 	padding: 2em 0;
 }
-article header {
-	
-}
 article h1,
 article h2 {
 	text-align: center;
@@ -175,11 +166,11 @@ article p:last-of-type {
 
 /* Specific Articles */
 
-/* form */
+/* Form article */
 main article:nth-child(2) {
 	background-color: hsl(203, 15%, 70%);
 }
-/* photo's */
+/* Photo's article */
 main article:nth-child(3) svg {
 	display: none;
 }
@@ -268,7 +259,7 @@ address {
 
 /* MEDIA QUERIES */
 /* NOTE: Because i can't use var's, i wil declair them here, if i would use SASS i would write them inside the code */
-@media (min-width: 570px) { /* SET TO EM'S */
+@media (min-width: 35.625em) { /* 570px */
 	body > header {
 		flex-direction: row;
 		justify-content: space-between;
@@ -284,7 +275,7 @@ address {
 	}
 }
 
-@media (min-width: 720px) { /* SET TO EM'S */
+@media (min-width: 45em) { /* 720px */
 	body > header p {
 		align-self: flex-start;
 	}
@@ -292,21 +283,27 @@ address {
 		margin: 0;
 	}
 }
-@media (min-width: 830px) {
+@media (min-width: 51.875em) { /* 830px */
 	footer {
 		flex-direction: row;
 	}
 }
 
-@media (min-width: 1000px) {
+
+/* Start the usage of CSS GRID LAYOUT */
+@media (min-width: 62.500em) { /* 1000px */
 	main {
 		width: 100%;
 		display: inline-grid;
+		/* create 6 columns */
 		grid-template-columns: 6fr;
+		/* create 2 rows */
 		grid-template-rows: 2fr;
 	}
 	main > article:nth-child(1) {
+		/* start this section at the second column, end on the fourth column */
 		grid-column: 2 / 4;
+		/* start this section at the first row */
 		grid-row: 1; 
 	}
 	main > article:nth-child(2) {
