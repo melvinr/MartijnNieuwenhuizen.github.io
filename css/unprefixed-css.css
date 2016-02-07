@@ -37,24 +37,23 @@ body {
 	padding: 0;
 }
 h1 {
-	font-size: 2.369rem;
+	font-size: 2.369em;
 	font-family: 'Ampersand', 'Roboto', 'Helvetica', 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
 }
 h2 {
-	font-size: 1.777rem;
+	font-size: 1.777em;
 	font-weight: 100;
 }
 h3 {
-	font-size: 1.333rem;
+	font-size: 1.333em;
 }
 p {
-	font-size: 1rem;
+	font-size: 1em;
 	padding: 1em;
 	margin: 0;
 	max-width: 30em;
 }
 a {
-	font-size: 1rem;
 	color: inherit;
 	text-decoration: none;
 	padding: .5em 1em;
@@ -63,14 +62,13 @@ button {
 	transition: .2s;
 	border: none;
 	padding: .3em .8em;
-	font-size: 1rem;
+	font-size: 1em;
 	margin-top: 1em;
 	background-color: hsl(203, 15%, 80%);
 	color: #fff;
 	font-weight: 100;
 }
 button:hover {
-	transition: .2s;
 	background-color: hsl(203, 15%, 85%);
 	box-shadow: .1em .1em .1em hsl(0, 0%, 42%);
 	cursor: pointer;
@@ -91,13 +89,11 @@ li {
 	margin: .5em 0;
 }
 li a {
-	list-style-type: none;
 	padding: .3em .8em;
 	transition: .2s;
 	background-color: white;
 }
 li a:hover {
-	transition: .2s;
 	box-shadow: .1em .1em .1em hsl(0, 0%, 42%);
 	background-color: #f2f2f2;
 	cursor: pointer;
@@ -215,7 +211,7 @@ main article:nth-child(3) figcaption {
 /* FORM */
 fieldset {
 	border: none;
-	font-size: 1.333rem;
+	font-size: 1.333em;
 	display: flex;
 	flex-flow: column wrap;
 }
@@ -307,7 +303,7 @@ address {
 	}
 	body > header h1 {
 		margin: 0;
-		font-size: 4rem;
+		font-size: 4em;
 	}
 }
 @media (min-width: 51.875em) { /* 830px */
