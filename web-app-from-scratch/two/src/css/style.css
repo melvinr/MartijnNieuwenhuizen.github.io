@@ -34,10 +34,10 @@ a {
 	font-weight: 100;
 }
 a:hover {
-	background-color: rgba(82, 185, 233, 1);
+	background-color: #ff5500;
 }
 a.active {
-	background-color: rgba(82, 185, 233, 1);
+	background-color: #ff5500;
 }
 
 h1, h2, h3, p, a, li {
@@ -51,6 +51,22 @@ ul {
 }
 li {
 	list-style-type: none;
+}
+li * {
+	word-wrap: break-word;
+}
+li:hover {
+	box-shadow: 1px 1px 4px #ff5500;
+	cursor: pointer;
+}
+li img {
+	position: relative;
+	transition: .3s;
+}
+li:hover img {
+	margin-left: -20%;
+	margin-top: -20%;
+	width: 150%;
 }
 
 /* HEADER */
@@ -177,11 +193,6 @@ SOUNDCLOUD
 
 
 
-
-/* JS */
-.hide {
-	display: none;
-}
 
 
 

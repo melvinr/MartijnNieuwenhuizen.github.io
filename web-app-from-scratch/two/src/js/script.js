@@ -1,16 +1,13 @@
-// Add the iifi
 (function() {
 	'use strict';
 
-	// Get 'gobal' parts
 	var main = document.querySelector('main');
-	var source = document.querySelector('#city').innerHTML;
-	var searchForm = document.querySelector('#search').innerHTML;
-	var noResult = document.querySelector('#no-restult').innerHTML;
-
-	// Hide error template
-	var errorTemplate = document.querySelector('#error');
-	errorTemplate.classList.add('hide');
+	// Get handlebars template parts
+	var templates = {
+		songs: document.querySelector('#songs').innerHTML,
+		searchform: document.querySelector('#search').innerHTML,
+		noSearchResults: document.querySelector('#no-restult').innerHTML
+	}
 
 	var app = {
 		init: function() {
@@ -24,12 +21,12 @@
 	var routes = {
 		init: function() {
 
-			window.onload = function() {
-				routie('search');
-			};
-
 			// routers for all the elements on the page
 			routie({
+				// if the url has no hash, set hash to search
+				'': function() {
+					routie('search');
+				},
 				'search': function() {
 			    	var title = "Search";
 			    	soundCloud.init(title);
@@ -43,8 +40,6 @@
 		}
 	}
 
-
-	// make the function return the data
 	var soundCloud = {
 		init: function(title) {
 
@@ -54,23 +49,21 @@
 				tracks: "tracks?client_id=2fda30f3c5a939525422f47c385564ae",
 				users: "users?client_id=2fda30f3c5a939525422f47c385564ae"
 			}
+			// Ajax call
 			nanoajax.ajax({url: sc.BaseUrl + '/' + sc.tracks}, function(amount, data) {
 
-				// Get / Store data
+				// store data
 				var rawData = JSON.parse(data);
 
-				console.log(rawData);
-
+				// Choose wich template to render
 				if ( title === "Search" ) {
 
-					title = "Search";
-					search.render(rawData, title);
+					template.renderForm(rawData);
 
 				}
 				if ( title === "All songs" ) {
 
-					title = "All songs";
-					template.render(rawData, source);
+					template.render(rawData, templates.songs);
 
 				}
 
@@ -79,70 +72,105 @@
 		}
 	}
 
+	// Render the templates
 	var template = {
+		render: function(data, htmlTemplate) {
 
-		rander: function(data, id) {
-			this.display(data, id);
-		},
-
-		renderForm: function(data, id, beyond) {
-			this.display(data, id, beyond = true);
-		},
-
-		display: function(data, id, beyond) {
-
-			var template = Handlebars.compile(id);
+			// Render template with handlebars
+			var template = Handlebars.compile(htmlTemplate);
 			var html = template(data);
 			main.innerHTML = html;
 
-			if ( beyond === true ) {
+			handle.detail();
 
-				search.handleSearch(data, id);
+		},
+		renderForm: function(rawData) {
 
-			}
+			// render the searchform template
+			this.render(rawData, templates.searchform);
+			// call the search
+			handle.search(rawData);
 
 		}
 	}
 
-	var search = {
-		render: function(rawData, title) {
+	// data transformeren
+	var handle = {
+		search: function(rawData) {
 
-			template.renderForm(rawData, searchForm);
-
-		},
-		handleSearch: function(rawData, title) {
-
-			var submit = document.querySelector('#submit');
-			submit.onclick = function() {
+			var submitButton = document.querySelector('#submit');
+			submitButton.onclick = function() {
 			
-				var searchText = document.querySelector('#song').value;
+				var searchValue = document.querySelector('#song').value;
 
-				var dataDat = [];
+				var matchingData = [];
 
-					var evens = _.filter(rawData, function(obj) {
+				_.filter(rawData, function(matched) {
 
-					    if( obj.title && obj.title.match(searchText)) {
+					// if the title or genre of a object matches
+				    if( matched.title && matched.title.match(searchValue) || matched.genre && matched.genre.match(searchValue)) {
 
-							dataDat.push(obj)
+				    	// push this data in the matchingdata array
+						matchingData.push(matched);
 
-					    }
-					   
-					 });   
+				    }
+				   
+				});   
 
-					// Robbert
-					// console.log(evens);
-					if( dataDat.length ) {
-						template.render(dataDat, source);	
+				// if there are search results
+				if( matchingData.length ) {
+
+					template.render(matchingData, templates.songs);	
+
+				}
+				// if there are no search results
+				else {
+
+					var message = {
+						title: "no search results match"
 					}
-					else {
+				
+					template.render(message, templates.noSearchResults);						
 
-						var message = {
-							title: "no search results"
-						}
-					
-						template.render(message, noResult);						
+				}
+
+			}
+
+		}
+		, detail: function() {
+
+			var songs = document.querySelectorAll('.songs');
+
+			// If there are songs shown
+			if ( songs.length ) {
+
+				// Old Slow version
+				// for ( var i = 0; i < songs.length; i++ ) {
+
+				// 	songs[i].onclick = function() {
+
+				// 		main.innerHTML = this.innerHTML;
+
+				// 	}
+
+				// }
+				// Prototype version
+				// 		maak de array aan
+				// 		loop er een voor een doorheen
+				// 		.call = stopt de data er een voor een in, zijn parameten is een individueel item
+				// 		(songs, function(songs)) { parameter 1 is een nodelist met informatie. de functie ......
+				[].forEach.call(songs, function(songs) {
+
+					songs.onclick = function() {
+						
+						// Show detail items of this item on the page
+						main.innerHTML = this.innerHTML;
 
 					}
+
+				});
+
+				// function(songs) = de this in de loop. // Tweede argument van forEach is de this in de loop
 
 			}
 
