@@ -334,6 +334,7 @@ ASIDE
 aside {
 	background-color: rgba(160, 160, 160, 1);
 	margin-top: 3em;
+	width: 90%;
 	max-width: 50em;
 	display: flex;
 	flex-flow: row wrap;
@@ -492,6 +493,9 @@ MEDIA QUERIES
 	body > header h1 {
 		margin: 0;
 		font-size: 4em;
+	}
+	aside > header {
+		padding-bottom: 2em;
 	}
 }
 @media (min-width: 51.875em) { /* 830px */

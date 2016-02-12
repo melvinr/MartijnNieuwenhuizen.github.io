@@ -405,7 +405,8 @@ ASIDE
 aside {
 	background-color: rgba(160, 160, 160, 1);
 	margin-top: 3em;
-	max-width: 50em;
+	width: 90%;
+	max-width: 40em; 
 	display: -webkit-box;
 	display: -webkit-flex;
 	display: -ms-flexbox;
@@ -433,7 +434,7 @@ aside {
 
 /* Aside Header */
 aside > header {
-	padding: 2em;
+	padding-bottom: 2em;
 }
 aside > header h3,
 aside > header a {
@@ -611,6 +612,9 @@ MEDIA QUERIES
 	body > header h1 {
 		margin: 0;
 		font-size: 4em;
+	}
+	aside > header {
+		padding-bottom: 2em;
 	}
 }
 @media (min-width: 51.875em) { /* 830px */
