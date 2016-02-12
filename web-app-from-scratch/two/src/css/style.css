@@ -1,0 +1,193 @@
+/*
+
+COLORS USAGE
+
+hsl(33, 56%, 84%);
+hsl(107, 20%, 81%);
+hsl(203, 15%, 70%);
+hsl(22, 52%, 32%);
+
+*/
+
+
+/* Default */
+	/* Typography */
+* {
+	font-family: 'Open Sans', sans-serif;
+}
+h1 {
+	font-size: 2.369em;
+}
+h2 {
+	font-size: 1.777em;
+}
+h3 {
+	font-size: 1.333em;
+}
+p {
+	font-size: 1em;
+	padding: .3em 1em;
+}
+a {
+	color: white;
+	text-decoration: none;
+	font-weight: 100;
+}
+a:hover {
+	background-color: rgba(82, 185, 233, 1);
+}
+a.active {
+	background-color: rgba(82, 185, 233, 1);
+}
+
+h1, h2, h3, p, a, li {
+	line-height: 1.7;
+	margin: 0;
+}
+
+ul {
+	padding: 0;
+	margin-left: 1em;
+}
+li {
+	list-style-type: none;
+}
+
+/* HEADER */
+header {
+	width: 100%;
+	display: flex;
+	flex-flow: row wrap;
+	background-color: #333333;
+	box-shadow: 0px 2px 2px -1px rgba(0,0,0, .5);
+	z-index: 1;
+}
+header a {
+	align-self: flex-end;
+	padding: .3em .8em;
+	margin: .7em;
+	margin-left: auto;
+}
+
+/* NAV */
+aside {
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	margin: 0;
+	flex: 1.5;
+	background-color: #333333;
+}
+nav {
+	width: 100%;
+}
+nav ul {
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+}
+nav ul li {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	display: block;
+	box-shadow: 0px 2px 2px -1px rgba(0,0,0, .5);
+	list-style-type: none;
+}
+ul li a {
+	padding: .5em .7em;
+	width: 100%;
+	display: block;
+}
+
+/* BODY */
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-flow: row wrap;
+}
+main {
+	display: flex;
+	flex-flow: column wrap;
+	padding: 1em;
+	background-color: hsl(0, 0%, 100%);
+	min-height: 86.6vh;
+	transition: .5s;
+	opacity: 1;
+	flex: 7.5;
+}
+main section {
+	width: 100%;
+}
+
+/* FOOTER */
+footer {
+	width: 100%;
+	margin-top: -1em;
+}
+footer p {
+	text-align: center;
+}
+
+
+/*
+
+SOUNDCLOUD
+
+*/
+.song-overview {
+
+}
+.song-overview ul {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+
+.songs {
+	width: 20em;
+	background-color: #f2f2f2;
+	margin: 1em 0;
+}
+.songs .wrapper {
+	width: 100%;
+	height: 12em;
+	overflow: hidden;
+}
+.songs img {
+	width: 100%;
+	height: auto;
+	vertical-align: middle;
+	display: inline;
+}
+.title {
+	font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* JS */
+.hide {
+	display: none;
+}
+
+
+
+
+
+
+
+
+

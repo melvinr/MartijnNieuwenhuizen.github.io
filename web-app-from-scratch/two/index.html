@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Single Page Web App</title>
+	<link rel="stylesheet" href="./src/css/style.css">
+</head>
+<body>
+
+	<header>
+		<a href="">Sounds Of The City</a>
+	</header>
+
+	<aside>
+		<nav>
+			<ul>
+				<li><a href="#all">All Songs</a></li>
+				<li><a href="#search">Search</a></li>
+			</ul>
+		</nav>
+	</aside>
+
+
+	<main></main>
+
+	<section class="template" id="error">
+		<h1>Sorry, this page doesn't exists</h1>
+	</section>
+
+	<script id="city" type="text/x-handlebars-template">
+	  	
+	  	<section class="song-overview">
+			<h1>{{ placeName }}</h1>
+			<ul>
+				{{#each this}}
+					<li class="songs">
+						<div class="wrapper">
+							{{#if artwork_url}}
+								<img src="{{ artwork_url }}" alt="Artwork">
+							{{else}}
+							    <img src="src/img/album.png" alt="placeholder">
+							{{/if}}
+						</div>
+
+						<!-- <span>{{ stream_url }}</span> -->
+
+						<p class="title">{{ title }}</p>
+						<p><span>Genre:</span> {{ genre }}</p>
+
+						{{#if description}}
+							<p>{{ description }}</p>
+						{{else}}
+							<p class="no-discription">Sorry, track has no discription</p>
+						{{/if}}
+
+						<div>
+							{{ track_url }}
+						</div>
+
+						<p><span>Added By:</span> {{ user.username }} </p>
+					</li>
+				{{/each}}
+			</ul>
+		</section>
+
+	</script>
+	<script id="search" type="text/x-handlebars-template">
+	  	
+	  	<form action="">
+	  		<label for="song">Search a Songtitle:</label>
+	  		<input type="text" id="song" required="true">
+
+	  		<button id="submit">Search</button>
+	  	</form>
+
+	</script>
+	
+	<script id="no-restult" type="text/x-handlebars-template">
+	  	
+	  	<h1>{{ title }}</h1>
+
+	</script>
+	
+	<script src="./src/js/nanoajax.min.js"></script>
+	<script src="./src/js/routie.min.js"></script>
+	<script src="./src/js/handlebars-v4.0.5.js"></script>
+	<script src="./src/js/underscore-min.js"></script>
+	<script src="./src/js/script.js"></script>
+
+</body>
+</html>
