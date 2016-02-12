@@ -185,7 +185,45 @@ SOUNDCLOUD
 }
 
 
-
+/* Search */
+#searchForm {
+	width: 80vw;
+	height: 70vh;
+	display: flex;
+	flex-flow: column wrap;
+	justify-content: center;
+	align-items: center;
+}
+#searchForm form {
+	height: 16em;
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+	justify-content: space-around;
+}
+#searchForm label {
+	color: #ff5500;
+	font-weight: 600;
+	font-size: 2em;
+}
+#searchForm input {
+	font-size: 2em;
+	padding: .3em .7em;
+}
+#searchForm input:focus {
+	outline: 2px solid #ff5500;
+}
+#searchForm button {
+	font-size: 2em;
+	border: none;
+	background-color: #ff5500;
+	padding: .1em 1em;
+	color: white;
+}
+#searchForm button:hover {
+	cursor: pointer;
+	background-color: #dd5500;
+}
 
 
 
