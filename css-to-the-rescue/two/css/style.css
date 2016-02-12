@@ -1,0 +1,664 @@
+/*
+
+	If you want to use this example, please follow this steps becouse it usages CSS grid layout.
+	* Use Google Chrome
+	* Go to: *chrome://flags/*
+	* Set *Enable experimental Web Platform features* on Enable
+	* Now u can use this example
+
+*/
+/*
+
+Used Colors
+hsl(33, 56%, 84%);
+hsl(107, 20%, 81%);
+hsl(203, 15%, 70%);
+hsl(22, 52%, 32%);
+
+*/
+
+/* 
+
+Ampersand 
+
+*/
+@font-face {
+    font-family: Ampersand;
+    src: local('Baskerville-Italic'), 
+    	 local('Garamond Italic'), 
+    	 local('Georgia Italic'), 
+    	 local('Times New Roman-Italic'), 
+    	 local('Cambria-Italic');
+    unicode-range: U+26;
+}
+
+
+/* 
+
+Basics
+
+*/
+body {
+	font-family: 'Roboto', 'Helvetica', 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+	margin: 0;
+	padding: 0;
+	line-height: 1.7;
+}
+h1 {
+	font-size: 2.369em;
+	/* Ampassand */
+	font-family: 'Ampersand', 'Roboto', 'Helvetica', 'Open Sans', 'Helvetica Neue', 'Arial', sans-serif;
+}
+h2 {
+	font-size: 1.777em;
+	font-weight: 100;
+}
+h3 {
+	font-size: 1.333em;
+}
+p {
+	font-size: 1em;
+	padding: 1em;
+	margin: 0;
+	max-width: 30em;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+	padding: .5em 1em;
+	-webkit-transition: .2s;
+	        transition: .2s;
+	background-color: white;
+	box-shadow: .1em .1em .1em hsl(0, 0%, 42%);
+}
+a:hover {
+	box-shadow: 0.25em 0.25em 0.25em hsl(0, 0%, 42%);
+	background-color: #f2f2f2;
+	cursor: pointer;
+}
+button {
+	-webkit-transition: .2s;
+	        transition: .2s;
+	border: none;
+	padding: .3em .8em;
+	font-size: 1em;
+	margin-top: 1em;
+	background-color: hsl(203, 15%, 80%);
+	color: #fff;
+	font-weight: 100;
+}
+button:hover {
+	background-color: hsl(203, 15%, 85%);
+	box-shadow: .1em .1em .1em hsl(0, 0%, 42%);
+	cursor: pointer;
+}
+
+
+/* 
+
+LISTS 
+
+*/
+ul {
+	padding-left: .5em;
+}
+
+li {
+	list-style-type: none;
+	padding: 0;
+	margin: .5em 0;
+}
+li a {
+	padding: .3em .8em;
+}
+
+
+/* 
+
+IMAGES
+
+*/
+figure {
+	margin: 1em;
+	max-width: -webkit-min-content;
+	max-width: -moz-min-content;
+	max-width: min-content;
+	max-width: 25em;
+}
+img {
+	max-width: inherit;
+}
+figcaption {
+	padding: .3em;
+	background-color: hsl(107, 20%, 71%);
+	font-weight: bold;
+}
+
+
+/* 
+
+SVG
+
+*/
+svg {
+	width: 1.2em;
+	height: 1.2em;
+}
+
+
+/* 
+
+MAIN HEADER 
+
+*/
+body > header {
+	width: 100%;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: column wrap;
+	    -ms-flex-flow: column wrap;
+	        flex-flow: column wrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	background-color: hsl(33, 56%, 84%);
+}
+body > header h1 {
+	text-align: center;
+	font-weight: 100;
+}
+body > header figure {
+	max-width: 20em;
+}
+body > header img {
+	border-radius: 50%;
+}
+
+/* MAIN NAV */
+[role="navigation"] {
+	width: 100%;
+	background-color: hsl(33, 56%, 74%);
+}
+[role="navigation"] ul {
+	padding: 0 2em;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	    -ms-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+[role="navigation"] li {
+	margin: .5em;
+	display: inline-block;
+}
+
+
+/* 
+
+SPESIFIC MENU ELEMENTS 
+
+*/
+/* select only the first four list items */
+[role="navigation"] li:nth-child(-n+4) a {
+}
+/* select the lists items after the fourth */
+[role="navigation"] li:nth-child(4) ~ li a {
+	box-shadow: none;
+}
+[role="navigation"] li:nth-child(4) ~ li a:hover {
+	cursor: not-allowed;
+}
+[role="navigation"] li:nth-child(4) ~ li {
+	display: none;
+}
+
+
+/* 
+
+ARTICLES 
+
+*/
+article {
+	background-color: hsl(107, 20%, 81%);
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: column wrap;
+	    -ms-flex-flow: column wrap;
+	        flex-flow: column wrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	padding: 2em 0;
+}
+article h1,
+article h2 {
+	text-align: center;
+	margin: 0;
+	padding: .2em 1em;
+}
+article p:last-of-type {
+	padding-bottom: 2em;
+}
+
+
+/* 
+
+Specific Articles 
+
+*/
+/* Form article */
+main article:nth-child(2) {
+	background-color: hsl(203, 15%, 70%);
+}
+/* Photo's article */
+main article:nth-child(3) svg {
+	display: none;
+}
+main article:nth-child(3) {
+	-webkit-flex-flow: row wrap;
+	    -ms-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+}
+main article:nth-child(3) header {
+	width: 100%;
+}
+main article:nth-child(3) figcaption {
+	margin-top: -.3em;
+}
+
+
+/* 
+
+FORM
+
+*/
+fieldset {
+	border: none;
+	font-size: 1.333em;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: column wrap;
+	    -ms-flex-flow: column wrap;
+	        flex-flow: column wrap;
+}
+legend {
+	padding-bottom: .3em;
+	margin-left: -.5em;
+	font-weight: bold;
+	color: #383838;
+}
+label {
+	padding-bottom: .3em;
+}
+input:first-of-type {
+	margin-bottom: 2em;
+}
+input:nth-of-type(2) {
+	margin-bottom: .8em;
+}
+input {
+	border: none;
+	border-bottom: 1px solid black;
+	background-color: hsla(203, 15%, 80%, .2);
+	padding: .5em;
+}
+input:focus {
+	background-color: hsla(203, 15%, 80%, .8);
+	outline: none;
+}
+
+
+/* 
+
+FOOTER 
+
+*/
+footer {
+	background-color: hsl(33, 56%, 84%);
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: column wrap;
+	    -ms-flex-flow: column wrap;
+	        flex-flow: column wrap;
+	padding: 2em;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
+}
+footer ul {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	    -ms-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	-webkit-box-pack: justify;
+	-webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
+}
+footer > nav,
+footer > ul, 
+footer > address {
+	max-width: 15em;
+	margin: 1em;
+}
+
+pre {
+	margin: 0;
+	padding: 0;
+	-moz-tab-size: 0;
+	  -o-tab-size: 0;
+	     tab-size: 0;
+}
+address {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+}
+
+
+/* 
+
+ASIDE
+
+*/
+aside {
+	background-color: rgba(160, 160, 160, 1);
+	margin-top: 3em;
+	width: 90%;
+	max-width: 40em; 
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	    -ms-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-box-pack: center;
+	-webkit-justify-content: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+
+	/* Idea from lea verou */
+	position: absolute;
+	top: 0%;
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	    -ms-transform: translateX(-50%);
+	        transform: translateX(-50%);
+}
+
+/* Aside Header */
+aside > header {
+	padding-bottom: 2em;
+}
+aside > header h3,
+aside > header a {
+	margin-top: auto;
+	-webkit-align-self: flex-start;
+	    -ms-flex-item-align: start;
+	        align-self: flex-start;
+}
+aside > header h2 {
+	margin-bottom: auto;
+}
+
+/* Aside Section global */
+aside section {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	    -ms-flex-flow: row wrap;
+	        flex-flow: row wrap;
+	-webkit-justify-content: space-around;
+	    -ms-flex-pack: distribute;
+	        justify-content: space-around;
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	width: 100%;
+	padding: 0 2em;
+	background-color: rgba(180, 180, 180, 1);
+	padding-bottom: 2em;
+}
+aside section header {
+	width: 100%;
+	text-align: center;
+}
+
+/* Aside Section images */
+aside section img {
+	max-width: 8em;
+}
+aside section figure {
+	max-width: -webkit-min-content;
+	max-width: -moz-min-content;
+	max-width: min-content;
+	margin-bottom: 3em;
+}
+aside img {
+	border-radius: 50%;
+}
+aside figcaption {
+	text-align: center;
+	background-color: transparent;
+	margin-top: -5.5em;
+	color: white;
+}
+
+/* Aside links */
+aside > a {
+	background-color: hsl(7, 50%, 50%);
+}
+aside header a {
+	background-color: hsl(107, 20%, 81%);
+}
+aside a {
+	margin: 1em 0;
+}
+
+/* 
+
+Aside Section images Color Overlay 
+
+*/
+aside section figure:nth-of-type(1) img {
+	-webkit-filter: brightness(3);
+}
+aside section figure:nth-of-type(2) img {
+	-webkit-filter: saturate(3);
+}
+aside section figure:nth-of-type(3) img {
+	-webkit-filter: sepia();
+}
+aside section figure:nth-of-type(4) img {
+	-webkit-filter: hue-rotate(120deg);
+}
+aside section figure:nth-of-type(5) img {
+	-webkit-filter: invert(.9);
+}
+
+aside section figure:hover img {
+	-webkit-filter: none;
+	cursor: pointer;
+}
+
+
+/*
+
+TARGETS
+
+*/
+/* TARGET One: upload your picture */
+#profile-picture {
+	display: none;
+}
+#profile-picture:target {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	box-shadow: 0 0 0 50vmax rgba(0,0,0, .5);
+}
+
+/* TARGET Two: overlay pictures */
+#profile-picture section {
+	max-height: 2em;
+	overflow: hidden;
+}
+#imgage-overlay:target #profile-picture {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	box-shadow: 0 0 0 50vmax rgba(0,0,0, .5);
+}
+#imgage-overlay:target #profile-picture section {
+	-webkit-transition: 0.3s ease;
+	        transition: 0.3s ease;
+	max-height: 40em;
+}
+#imgage-overlay:target aside > a {
+	background-color: hsl(107, 20%, 81%);
+}
+
+
+/* 
+
+MEDIA QUERIES 
+
+*/
+@media (min-width: 35.625em) { /* 570px */
+	body > header {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: row;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		    -ms-flex-pack: justify;
+		        justify-content: space-between;
+	}
+	header figure {
+		-webkit-box-ordinal-group: 0;
+		-webkit-order: -1;
+		    -ms-flex-order: -1;
+		        order: -1;
+	}
+	body > header p {
+		-webkit-align-self: flex-start;
+		    -ms-flex-item-align: start;
+		        align-self: flex-start;
+	}
+	body > header h1 {
+		margin-right: 1em;
+	}
+}
+
+@media (min-width: 45em) { /* 720px */
+	body > header p {
+		-webkit-align-self: flex-start;
+		    -ms-flex-item-align: start;
+		        align-self: flex-start;
+	}
+	body > header h1 {
+		margin: 0;
+		font-size: 4em;
+	}
+	aside > header {
+		padding-bottom: 2em;
+	}
+}
+@media (min-width: 51.875em) { /* 830px */
+	footer {
+		-webkit-box-orient: horizontal;
+		-webkit-box-direction: normal;
+		-webkit-flex-direction: row;
+		    -ms-flex-direction: row;
+		        flex-direction: row;
+	}
+}
+
+
+/* Start the usage of CSS GRID LAYOUT */
+@media (min-width: 62.500em) { /* 1000px */
+	main {
+		width: 100%;
+		display: inline-grid;
+		/* create 6 columns */
+		grid-template-columns: 6fr;
+		/* create 2 rows */
+		grid-template-rows: 2fr;
+	}
+	main > article:nth-child(1) {
+		/* start this section at the second column, end on the fourth column */
+		grid-column: 2 / 4;
+		/* start this section at the first row */
+		grid-row: 1; 
+	}
+	main > article:nth-child(2) {
+		grid-column: 4 / 6;
+		grid-row: 1;
+	}
+	main > article:nth-child(3) {
+		grid-column: 1 / 6;
+		grid-row: 2; 
+		margin: 1em 0;
+	}
+	[role="navigation"] li:nth-child(8) ~ li {
+		display: inline-block;
+	}
+}
+@media (min-width: 80em) { /* 1280px */
+	[role="navigation"] li {
+			display: inline-block;
+	}
+}
