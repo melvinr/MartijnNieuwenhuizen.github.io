@@ -56,6 +56,10 @@
 				var rawData = JSON.parse(data);
 
 				// Choose wich template to render
+				
+				//Ik zou kijken of er een manier is om deze statements dynamisch samen te voegen tot 1 statement,
+				//op die manier hoef je niet weer een if statement te schrijven als er nog een pagina bij komt
+				//die data nodig heeft. Je zou hiervoor eventueel naar de _.uniqueId functionaliteit van underscore kunnen kijken.
 				if ( title === "Search" ) {
 
 					template.renderForm(rawData);
@@ -127,7 +131,7 @@
 				else {
 
 					var message = {
-						title: "no search results match"
+						title: "no search results match";
 					}
 				
 					template.render(message, templates.noSearchResults);						
@@ -136,8 +140,8 @@
 
 			}
 
-		}
-		, detail: function() {
+		}, 
+		detail: function() {
 
 			var songs = document.querySelectorAll('.songs');
 
@@ -146,7 +150,7 @@
 
 				// Prototype version
 				// 		Make array
-				// 		Loop thrue
+				// 		Loop through
 				// 		.call: add data one by one
 				// 		put data in the parameter songs
 				[].forEach.call(songs, function(songs) {
