@@ -131,7 +131,7 @@
 				else {
 
 					var message = {
-						title: "no search results match";
+						title: "no search results match"
 					}
 				
 					template.render(message, templates.noSearchResults);						
